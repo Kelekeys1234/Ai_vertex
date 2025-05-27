@@ -28,12 +28,6 @@ public class GeminiTextApi {
 			GenerateContentResponse response = client.models.generateContent(model.getId(), fullPropmt, null);
 			String result = response.text();
 			String text = Jsoup.parse(result).wholeText();
-
-			// Just print the plain text response to console
-			System.out.println("=== Gemini Response ===");
-			System.out.println(text);
-			System.out.println("========================");
-
 			return text;
 		});
 	}
