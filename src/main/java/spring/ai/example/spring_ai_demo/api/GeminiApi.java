@@ -1,5 +1,8 @@
 package spring.ai.example.spring_ai_demo.api;
 
+import java.io.FileWriter;
+import java.io.IOException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -42,6 +45,16 @@ public class GeminiApi {
                 description + RMO_Prompt,
                 null
             );
+            String result = response.text();
+            System.out.println("Gemini Response:\n" + result);
+
+            // 2. Write to HTML file
+            try (FileWriter writer = new FileWriter("gemini-response.html")) {
+                writer.write(result);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
             return response.text();
         });
     }
