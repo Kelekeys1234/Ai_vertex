@@ -38,13 +38,12 @@ public class GeminiController {
             System.out.println("Prompt is required");
             return Mono.empty();
         }
-
         return geminiTextApi.chat(ChatModel.GEMINI_2_0_FLASH, prompt)
                 .doOnNext(response -> {
                     System.out.println("Gemini API Response:");
                     System.out.println(response);
                 })
-                .then(); // Complete without returning any response body
+                .then();
     }
 
 }
