@@ -3,11 +3,9 @@ package spring.ai.example.spring_ai_demo.api;
 import java.io.FileWriter;
 import java.io.IOException;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
+import spring.ai.example.spring_ai_demo.enums.ChatModel;
 
 import com.google.genai.Client;
 import com.google.genai.types.GenerateContentResponse;
@@ -21,21 +19,6 @@ public class GeminiApi {
         this.client = new Client(); // Client will now pick it up
     }
 
-    public enum ChatModel {
-        GEMINI_1_5_FLASH_LATEST("gemini-1.5-flash-latest"),
-        GEMINI_2_0_FLASH("gemini-2.0-flash"),
-        GEMINI_1_5_PRO_LATEST("gemini-1.5-pro-latest");
-
-        final String id;
-
-        ChatModel(String id) {
-            this.id = id;
-        }
-
-        public String getId() {
-            return id;
-        }
-    }
 
     public Mono<String> chat(ChatModel model, String description) {
         return Mono.fromSupplier(() -> {

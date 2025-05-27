@@ -14,233 +14,243 @@
             color: #333;
             display: flex;
             justify-content: center;
+            align-items: center;
+            min-height: 100vh;
         }
 
         .container {
             width: 80%;
             max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
+            margin: 20px;
             background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
             border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
         .timeline {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            position: relative;
+            padding: 20px 0;
         }
 
-        .timeline-item {
-            display: flex;
-            align-items: center;
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background-color: #ddd;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1px;
+        }
+
+        .timeline-step {
             margin-bottom: 20px;
+            position: relative;
         }
 
-        .timeline-icon {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
+        .timeline-step::after {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 10px;
             background-color: #398cd8;
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-right: 15px;
-            font-size: 1.2em;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
         }
 
         .timeline-content {
             padding: 15px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
             background-color: #f9f9f9;
-            width: 100%;
-            box-sizing: border-box;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            margin-left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            text-align: center;
         }
 
         .timeline-branch {
-            border-left: 2px dashed #ccc;
-            margin-left: 14px;
-            padding-left: 20px;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1px;
+            border-left: 2px dashed #ddd;
+            width: 0;
         }
 
-        .timeline-branch-item {
+        .branch-step {
+            padding: 10px;
+            text-align: left;
+            margin-left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            background-color: #f9f9f9;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
             margin-bottom: 10px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1 class="color-bright-cerulean">🎯 Your Goal: Become a Certified Software Developer</h1>
-        <p class="fs-15">Hey there! It sounds like you're a student aiming to become a certified software developer, and you're looking for a career path that offers a high salary and growth opportunities. Let's break down how you can achieve your goal with a little help from Yuzee!</p>
 
-        <h2 class="color-bright-cerulean">🧭 Career Pathway to Becoming a Certified Software Developer</h2>
-        <p class="fs-15">Here’s a possible pathway to help you achieve your goal. Each step is designed to build your skills and knowledge in a practical, progressive manner.</p>
-        
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-icon">▶</div>
-                <div class="timeline-content">
-                    <h3 class="font-medium">Step 1: Foundations</h3>
-                    <p class="fs-14">Start with a strong foundation in computer science principles. This includes data structures, algorithms, and basic programming concepts.</p>
-                    <div class="timeline-branch">
-                        <div class="timeline-branch-item">
-                            <p class="fs-13"><strong>Option A:</strong> Certificate IV in Information Technology (programming focus)</p>
-                        </div>
-                        <div class="timeline-branch-item">
-                            <p class="fs-13"><strong>Option B:</strong> Introductory online courses (e.g., Codecademy, Coursera) in languages like Python or Java</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        
-            <div class="timeline-item">
-                <div class="timeline-icon">▶</div>
-                <div class="timeline-content">
-                    <h3 class="font-medium">Step 2: Core Programming Skills</h3>
-                    <p class="fs-14">Develop proficiency in one or more popular programming languages and frameworks.</p>
-                    <div class="timeline-branch">
-                        <div class="timeline-branch-item">
-                            <p class="fs-13"><strong>Option A:</strong> Diploma of Software Development</p>
-                        </div>
-                        <div class="timeline-branch-item">
-                            <p class="fs-13"><strong>Option B:</strong> Focused courses on specific technologies (e.g., JavaScript, React, .NET)</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        
-            <div class="timeline-item">
-                <div class="timeline-icon">▶</div>
-                <div class="timeline-content">
-                    <h3 class="font-medium">Step 3: Bachelor's Degree (Optional but Recommended)</h3>
-                    <p class="fs-14">Enhance your theoretical knowledge and broaden your career opportunities with a bachelor's degree.</p>
-                    <div class="timeline-branch">
-                        <div class="timeline-branch-item">
-                            <p class="fs-13"><strong>Option:</strong> Bachelor of Computer Science or Software Engineering</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        
-            <div class="timeline-item">
-                <div class="timeline-icon">▶</div>
-                <div class="timeline-content">
-                    <h3 class="font-medium">Step 4: Practical Experience</h3>
-                    <p class="fs-14">Gain hands-on experience through internships, work placements, or entry-level positions.</p>
-                    <div class="timeline-branch">
-                        <div class="timeline-branch-item">
-                            <p class="fs-13"><strong>Option A:</strong> Software Developer Internship</p>
-                        </div>
-                        <div class="timeline-branch-item">
-                            <p class="fs-13"><strong>Option B:</strong> Junior Software Developer Role</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        
-            <div class="timeline-item">
-                <div class="timeline-icon">▶</div>
-                <div class="timeline-content">
-                    <h3 class="font-medium">Step 5: Certification and Specialization</h3>
-                    <p class="fs-14">Obtain certifications in specific technologies or methodologies to enhance your expertise.</p>
-                    <div class="timeline-branch">
-                        <div class="timeline-branch-item">
-                            <p class="fs-13"><strong>Option A:</strong> AWS Certified Developer, Microsoft Certified: Azure Developer</p>
-                        </div>
-                        <div class="timeline-branch-item">
-                            <p class="fs-13"><strong>Option B:</strong> Project Management Certifications (e.g., Agile, Scrum)</p>
-                        </div>
-                    </div>
-                </div>
+<div class="container">
+    <h1 class="color-midnight-blue font-bold">Your Personalized Career Journey to Becoming a Certified Software Developer!</h1>
+
+    <p class="fs-16">👋 Hey there! I understand you're a student aiming to become a certified software developer, driven by the desire for a high salary and amazing growth opportunities. Yuzee is here to guide you every step of the way!</p>
+
+    <h2 class="color-midnight-blue font-bold">🚀 Here's Your Path to Success:</h2>
+    <p class="fs-15">This career pathway outlines the steps you can take to achieve your goal of becoming a certified software developer:</p>
+
+    <div class="timeline">
+        <div class="timeline-step">
+            <div class="timeline-content">
+                <h3 class="font-bold">Step 1: Foundational Education</h3>
+                <p>Complete your high school education with a focus on mathematics and computer science-related subjects.</p>
             </div>
         </div>
 
-        <h2 class="color-bright-cerulean"> 🤝 Here's How Yuzee Can Help You Succeed 🤝</h2>
-        <p class="fs-15">At Yuzee, we make one promise: your success comes first. Leveraging the information you provide, our advanced system—originally developed through the analysis of over six million job roles and updated daily—maps out the skills, trends and industry shifts shaping tomorrow’s workforce. We assess every available course—examining its curriculum, core and specialised skills taught, and real-world outcomes—and determine which option aligns most closely with your aspirations. By integrating employer insights, future-trend forecasts, data from over 80,000 institutions and your geographic preferences, we uncover the absolute best fit for you. Finally, we back you with targeted training, authentic internships and work placements so that you not only reach your goals but thrive in your chosen path.</p>
+        <div class="timeline-step">
+            <div class="timeline-content">
+                <h3 class="font-bold">Step 2: Choose Your Educational Pathway</h3>
+                <p>Select a pathway that suits your learning style and career goals:</p>
 
-        <table style="width:100%; border-collapse: collapse;">
-            <tr style="background-color:#f1f1f1;">
-                <th style="padding:10px; text-align:left;">🔍 Find the Perfect Course</th>
-            </tr>
-            <tr>
-                <td style="padding:10px;">
-                    <em style="font-style: italic;">Unlock personalised learning paths tailored to your unique goals.</em><br>
-                    Yuzee helps you identify courses that match your interests, skills, and career aspirations. We'll make sure your education is a perfect fit!
-                    <br>[link]
-                </td>
-            </tr>
+                <div class="branch-step">
+                    <h4 class="font-medium">Option A: University Degree</h4>
+                    <p>Pursue a Bachelor's degree in Computer Science, Software Engineering, or a related field.</p>
+                </div>
 
-            <tr style="background-color:#f1f1f1;">
-                <th style="padding:10px; text-align:left;">🧩 Get Job-Ready Skills</th>
-            </tr>
-            <tr>
-                <td style="padding:10px;">
-                    <em style="font-style: italic;">Acquire in-demand skills that employers are actively seeking.</em><br>
-                    Our training programs are designed to equip you with practical, job-ready skills that will make you stand out in the competitive job market.
-                    <br>[link]
-                </td>
-            </tr>
+                <div class="branch-step">
+                    <h4 class="font-medium">Option B: Vocational Training</h4>
+                    <p>Complete a Diploma or Advanced Diploma in Software Development from a TAFE or vocational institute.</p>
+                </div>
+            </div>
+            <div class="timeline-branch"></div>
+        </div>
 
-            <tr style="background-color:#f1f1f1;">
-                <th style="padding:10px; text-align:left;">🎓 Earn While You Learn</th>
-            </tr>
-            <tr>
-                <td style="padding:10px;">
-                    <em style="font-style: italic;">Balance your education and career by earning while you learn.</em><br>
-                    Yuzee connects you with apprenticeships and traineeships that provide both valuable work experience and a steady income while you study.
-                    <br>[link]
-                </td>
-            </tr>
+        <div class="timeline-step">
+            <div class="timeline-content">
+                <h3 class="font-bold">Step 3: Gain Practical Experience</h3>
+                <p>Acquire hands-on experience through internships, personal projects, and contributions to open-source projects.</p>
+            </div>
+        </div>
 
-            <tr style="background-color:#f1f1f1;">
-                <th style="padding:10px; text-align:left;">🗺️ Chart Your Career Path</th>
-            </tr>
-            <tr>
-                <td style="padding:10px;">
-                    <em style="font-style: italic;">Navigate your career with confidence using expert guidance.</em><br>
-                    Our career counsellors provide personalised support to help you make informed decisions and achieve your professional goals.
-                    <br>[link]
-                </td>
-            </tr>
+        <div class="timeline-step">
+            <div class="timeline-content">
+                <h3 class="font-bold">Step 4: Obtain Relevant Certifications</h3>
+                <p>Pursue industry-recognized certifications such as:</p>
+                <ul>
+                    <li>Microsoft Certified: Azure Developer Associate</li>
+                    <li>AWS Certified Developer – Associate</li>
+                    <li>Certified Kubernetes Application Developer (CKAD)</li>
+                </ul>
+            </div>
+        </div>
 
-            <tr style="background-color:#f1f1f1;">
-                <th style="padding:10px; text-align:left;">💼 Land Your Dream Job</th>
-            </tr>
-            <tr>
-                <td style="padding:10px;">
-                    <em style="font-style: italic;">Receive offers 52% quicker!</em><br>
-                    Let us do the hard work. Our 24/7 AI job-match engine ensures you'll find the perfect roles to kickstart or advance your career.
-                    <br>[link]
-                </td>
-            </tr>
-        </table>
+        <div class="timeline-step">
+            <div class="timeline-content">
+                <h3 class="font-bold">Step 5: Start Your Career</h3>
+                <p>Apply for entry-level software developer positions and continue to learn and grow in your role.</p>
+            </div>
+        </div>
     </div>
+
+    <h2 class="color-midnight-blue font-bold">✨ Short-Term Career Counseling ✨</h2>
+    <p class="fs-15">Becoming a certified software developer can be an exciting journey! Your desire for a high salary and growth opportunities are definitely achievable. Here's a breakdown:</p>
+
+    <ul class="fs-14">
+        <li><strong>Understand the Goal:</strong> You want to become a certified software developer to boost your career and earning potential.</li>
+        <li><strong>Best Answer:</strong> Combining formal education (like a degree or diploma) with practical experience (internships, projects) and certifications is key.</li>
+        <li><strong>Pathway Options:</strong> Both university and vocational training routes can lead to success. Choose the one that aligns with your learning style and financial situation.</li>
+    </ul>
+
+    <h2 class="color-midnight-blue font-bold">🤝 Here's How Yuzee Can Help You Succeed 🤝</h2>
+
+    <table>
+    <thead>
+        <tr>
+            <th></th>
+            <th>Service</th>
+            <th>Value Proposition</th>
+            <th>Description</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>🔍</td>
+            <td>Get a course offer </td>
+            <td><em>Find the right path toward success, not just a course.</em></td>
+            <td>Receive personalised offers for courses matching ambitions; assists in finding the right course/institution for the best future outlook.</td>
+            <td>[link]</td>
+        </tr>
+        <tr>
+            <td>🧩</td>
+            <td>I need an Internship or Work placement</td>
+            <td><em>52% quicker offers for Employers bidding on you for roles like Software Engineering Intern </em></td>
+            <td>Actively searches, applies, and promotes your profile 24/7 for internships. Aligns with school/TAFE/uni/RTO requirements.</td>
+            <td>[link]</td>
+        </tr>
+        <tr>
+            <td>🎓</td>
+            <td>Upskilling</td>
+            <td><em>Quick Employability & help you enhance your skills and find the right career opportunities</em></td>
+            <td>Assesses current skills/goals and recommends upskilling options attractive to employers. Secures personalised course offers to boost employability fast.</td>
+            <td>[link]</td>
+        </tr>
+        <tr>
+            <td>💼</td>
+            <td>Looking for part time or full time work</td>
+            <td><em>You get a job offer in receive offers 52% quicker while we take the stress out of job searching </em></td>
+            <td>Actively searches, applies for, and secures part-time/full-time jobs for you. We understand what's important to you and keep skills sharp.</td>
+            <td>[link]</td>
+        </tr>
+    </tbody>
+</table>
+</div>
 </body>
-</html>JSON 5 questions":
+</html>
 {
-"recommended_questions": [
-{
-"id": "RQ1",
-"question": "Show me courses for software development."
-},
-{
-"id": "RQ2",
-"question": "Find software developer internships."
-},
-{
-"id": "RQ3",
-"question": "Tell me about salaries for developers."
-},
-{
-"id": "RQ4",
-"question": "What is 'certification' in software?"
-},
-{
-"id": "RQ5",
-"question": "How does Yuzee help me find internships?"
-}
-]
+  "recommended_questions": [
+    {
+      "id": "RQ1",
+      "question": "Show me available software development internships."
+    },
+    {
+      "id": "RQ2",
+      "question": "What are the highest paying software development roles?"
+    },
+    {
+      "id": "RQ3",
+      "question": "Tell me more about vocational training options for software development."
+    },
+    {
+      "id": "RQ4",
+      "question": "Can you help me prepare for a software developer job interview?"
+    },
+    {
+      "id": "RQ5",
+      "question": "How can Yuzee help me find relevant certifications?"
+    }
+  ]
 }
