@@ -32,15 +32,19 @@ public class GeminiController {
     }
     
     @PostMapping("/chat/text")
-    public Mono<ResponseEntity<String>> textChat(@RequestBody Map<String, String> request) {
+    public Mono<Void> textChat(@RequestBody Map<String, String> request) {
         String prompt = request.get("description");
         if (prompt == null || prompt.isBlank()) {
-            return Mono.just(ResponseEntity.badRequest().body("Prompt is required"));
+            System.out.println("Prompt is required");
+            return Mono.empty();
         }
 
         return geminiTextApi.chat(ChatModel.GEMINI_2_0_FLASH, prompt)
-                .map(ResponseEntity::ok)
-                .onErrorResume(e -> Mono.just(ResponseEntity.internalServerError()
-                        .body("Error calling Gemini API: " + e.getMessage())));
+                .doOnNext(response -> {
+                    System.out.println("Gemini API Response:");
+                    System.out.println(response);
+                })
+                .then(); // Complete without returning any response body
     }
+
 }
